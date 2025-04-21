@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Finale</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding-top: 50px;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    img.panda {
+      width: 150px;
+      animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+      to {
+        transform: translateY(-10px);
+      }
+    }
+
+    button {
+      font-size: 20px;
+      padding: 15px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    #si {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    #no {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://preview.redd.it/2jms1alpfhf21.jpg?width=1080&crop=smart&auto=webp&s=3d3c9d93d3f0efa3469c9742e1d77832c5791dcd" class="panda" alt="Panda carino">
+  <h2>Ti va di uscire con me?</h2>
+  <button id="si" onclick="vaiAllaLettera()">Sì</button>
+  <button id="no" onclick="rimpicciolisci()">No</button>
+
+  <script>
+    let scalaNo = 1;
+    let scalaSi = 1;
+
+    function rimpicciolisci() {
+      scalaNo -= 0.1;
+      if (scalaNo < 0.1) scalaNo = 0.1;
+      document.getElementById("no").style.transform = `scale(${scalaNo})`;
+    }
+
+    function ingrandisci() {
+      scalaSi += 0.1;
+      document.getElementById("si").style.transform = `scale(${scalaSi})`;
+    }
+  </script>
+  <script>
+    function vaiAllaLettera() {
+      window.open("lettera.html", "_blank");
+    }
+  
+    function giocaNo() {
+      const no = document.getElementById("no");
+      const si = document.getElementById("si");
+      no.style.transform = "scale(0.8)";
+      si.style.transform = "scale(1.3)";
+    }
+  </script>
+  
+</body>
+</html>

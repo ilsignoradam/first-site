@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Lettera</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            text-align: center;
+            padding-top: 50px;
+            display: flex; /* Flexbox per centrare gli elementi principali */
+            justify-content: center; /* Allinea orizzontalmente */
+            align-items: center; /* Allinea verticalmente */
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex; /* Flexbox per affiancare immagine e busta */
+            align-items: center; /* Allinea verticalmente al centro */
+            gap: 30px; /* Spazio tra busta e immagine */
+        }
+
+        .busta {
+            position: relative;
+            width: 300px;
+            height: 200px;
+            background: #ccc;
+            border-radius: 10px;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .busta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #bbb;
+            clip-path: polygon(0 0, 100% 0, 50% 60%);
+            transform-origin: top;
+            animation: apri 2s forwards;
+        }
+
+        .foglio {
+            position: absolute;
+            top: 60%;
+            left: 10%;
+            width: 80%;
+            height: 100px;
+            background: rgba(158, 157, 157, 0.6);
+            color: black;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            transform: translateY(100%);
+            animation: esce 2s 2s forwards; /* parte dopo l'animazione della busta */
+        }
+
+        @keyframes apri {
+            to {
+                transform: rotateX(-180deg);
+            }
+        }
+
+        @keyframes esce {
+            to {
+                transform: translateY(-50%);
+            }
+        }
+
+        img {
+            max-width: 180px; /* Aumentata la larghezza massima */
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="busta">
+            <div class="foglio"> Scrivimi<br>333 934 4089 </div>
+        </div>
+        <img src="https://i.pinimg.com/736x/b6/12/2c/b6122ccc23485e34ab60408d669d4145.jpg">
+    </div>
+</body>
+</html>
